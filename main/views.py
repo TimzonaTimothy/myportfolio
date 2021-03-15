@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import *
 from django.core.mail import send_mail
+from django.http import HttpResponse
 # Create your views here.
 
 class Home(TemplateView):
@@ -10,6 +11,7 @@ class Home(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['about'] = About.objects.first()
+        context['file'] = FilesAdmin.objects.all()
         context['services'] = Service.objects.all()
         context['works'] = RecentWork.objects.all()
         context['client'] = Client.objects.all()
@@ -30,3 +32,13 @@ def contact(request):
 
     else:
         return render(request, 'contact.html', {})
+
+def download(request,path):
+    file_path=os.path.join(settings.MEDIA_ROOT,path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb')as fh:
+            response=HttpResponse(fh.read(),content_type='application/adminupload')
+            response['Content-Disposition']='inline;filename='+os.path.basename(file_path)
+            return response
+    
+    raise Http404

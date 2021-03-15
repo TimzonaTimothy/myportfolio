@@ -19,44 +19,6 @@ body{
     z-index: 2;
 }
 
-.card1 {
-    width: 900px;
-    border: none;
-    border-radius: 20px;
-    background-color: #fff
-}
-
-.stats {
-    background: #f2f5f8 !important;
-    color: #000 !important
-}
-
-.articles {
-    font-size: 20px;
-    color: #a1aab9
-}
-
-.number1 {
-    font-weight: 1000
-}
-
-.followers {
-    font-size: 20px;
-    color: #a1aab9
-}
-
-.number2 {
-    font-weight: 1000
-}
-
-.rating {
-    font-size: 20px;
-    color: #a1aab9
-}
-
-.number3 {
-    font-weight: 1000
-}
 #myDIV {
     border-radius: 10px;
     background: red;
@@ -74,4 +36,8 @@ body{
 @keyframes mymove {
     from {background-color: red;}
     to {background-color: blue;}
+}
+
+#style{
+    font-family: Arial, Helvetica, sans-serif;
 }

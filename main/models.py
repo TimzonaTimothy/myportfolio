@@ -35,3 +35,11 @@ class Client(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class FilesAdmin(models.Model):
+    adminupload = models.FileField(upload_to="about/")
+    title = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.title
